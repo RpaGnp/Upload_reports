@@ -23,7 +23,9 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+        env:
+          HOME: /tmp  # Configura un directorio temporal accesible
+          
       - name: Test SSH connection
         id: test_ssh
         run: |
