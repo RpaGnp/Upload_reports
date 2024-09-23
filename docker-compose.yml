@@ -1,0 +1,31 @@
+version: "3"
+
+services: 
+  selenium:
+    container_name: selenium_reports
+    image: selenium/standalone-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./Downloads:/home/seluser/Downloads 
+    ports:
+      - 4446:4444
+      - 0.0.0.0:9222:9222
+    networks:
+      - bot-network
+
+  app:
+    container_name: Upload_reports
+    build: 
+      context: .
+    volumes:
+      - ./app:/app
+      - ./Downloads:/app/Downloads
+    environment:
+      USER: 45049074
+      PSW: Control2042*
+    networks:
+      - bot-network
+
+networks:
+  bot-network:
+    driver: bridge
