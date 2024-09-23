@@ -9,7 +9,7 @@ services:
       - ./Downloads:/home/seluser/Downloads 
     ports:
       - 4447:4444
-      - 0.0.0.0:9222:9222
+      - 0.0.0.0:9223:9222
     networks:
       - bot-network
 
