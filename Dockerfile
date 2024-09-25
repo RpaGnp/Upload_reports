@@ -23,6 +23,8 @@ COPY ./app /app
 COPY ./scripts /scripts
 
 RUN chmod +x /scripts/* && dos2unix /scripts/* 
+RUN mkdir -p /home/seluser/Downloads && \
+    chown -R seluser:seluser /home/seluser/Downloads
 
 CMD [ "script.sh" ]
 # CMD [ "entrypoint.sh" ]
