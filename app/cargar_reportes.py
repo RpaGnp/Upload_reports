@@ -116,12 +116,17 @@ class bot():
         # Cambiar a la nueva pestaña
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.driver.get('chrome://Downloads')
+        time.sleep(1)
+        self.driver.execute_script("window.open('');")
+        self.driver.switch_to.window(self.driver.window_handles[2])
+        self.driver.get('chrome://settings/downloads')
+        time.sleep(1)
+        self.driver.save_screenshot('./screenshot.png')
         self.driver.switch_to.window(self.driver.window_handles[0])
 
     def login_wf(self):
-
+        time.sleep(10)
         self.driver.get("https://amx-res-co.etadirect.com/")                
-        
         # Espera explícita para el campo de usuario
         wait = WebDriverWait(self.driver, 30)
         self.driver.save_screenshot('./screenshot.png')
