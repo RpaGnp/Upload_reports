@@ -19,7 +19,7 @@ services:
       context: .
     volumes:
       - ./app:/app
-      - ./Downloads:/Downloads
+      - ./Downloads:/app/Downloads
     environment:
       USER: 45049074
       PSW: Control2042*
